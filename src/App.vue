@@ -9,6 +9,46 @@
           <!-- Mail -->
           <!-- Password -->
           <!-- Store Data? Yes/No -->
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input
+            id="fullname"
+            class="form-control"
+            type="text"
+            v-model="fullname">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+            id="email"
+            class="form-control"
+            type="text"
+            v-model="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+            id="password"
+            class="form-control"
+            type="password"
+            v-model="password">
+          </div>
+          <div class="form-group">
+            <label for="storeyes" class="radio-inline">
+              <input
+              type="radio"
+              id="storeyes"
+              value="yes"
+              v-model="storedata">Yes
+            </label>
+            <label for="storeno" class="radio-inline">
+              <input
+              type="radio"
+              id="storeno"
+              value="no"
+              v-model="storedata">No
+            </label>
+          </div>
 
           <!-- Exercise 2 -->
           <!-- Only display the Form if it has NOT been submitted -->
@@ -28,10 +68,10 @@
             <h4>Your Data</h4>
           </div>
           <div class="panel-body">
-            <p>Full Name: </p>
-            <p>Mail: </p>
-            <p>Password: </p>
-            <p>Store in Database?: </p>
+            <p>Full Name: {{ fullname }}</p>
+            <p>Mail: {{ email }}</p>
+            <p>Password: {{ password }}</p>
+            <p>Store in Database?: {{ storedata }}</p>
           </div>
         </div>
       </div>
@@ -41,6 +81,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      fullname: '',
+      email: '',
+      password: '',
+      storedata: 'yes',
+    };
+  },
 };
 </script>
 
