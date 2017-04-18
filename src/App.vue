@@ -17,20 +17,7 @@
           <!-- Exercise 3 -->
           <!-- Edit the Example from above and create a custom "Full Name" Control -->
           <!-- which still holds the First Name and Last Name Input Field -->
-          <div class="form-group">
-            <label for="firstname">First Name</label>
-            <input
-                   id="firstname"
-                   class="form-control"
-                   type="text"
-                   v-model="firstname">
-            <label for="lastname">Last Name</label>
-            <input
-                   id="lastname"
-                   class="form-control"
-                   type="text"
-                   v-model="lastname">
-          </div>
+          <app-fullname v-model="fullname"></app-fullname>
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -68,8 +55,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <button
-            class="btn btn-primary"
-            @click.prevent="submitted">Submit</button>
+             class="btn btn-primary"
+             @click.prevent="submitted">Submit</button>
         </div>
       </div>
     </form>
@@ -81,7 +68,7 @@
             <h4>Your Data</h4>
           </div>
           <div class="panel-body">
-            <p>Full Name: {{ firstname + ' ' + lastname }}</p>
+            <p>Full Name: {{ fullname }}</p>
             <p>Mail: {{ email }}</p>
             <p>Password: {{ password }}</p>
             <p>Store in Database?: {{ storedata }}</p>
@@ -93,11 +80,12 @@
 </template>
 
 <script>
+import FullName from './FullName.vue';
+
 export default {
   data() {
     return {
-      firstname: '',
-      lastname: '',
+      fullname: '',
       email: '',
       password: '',
       storedata: 'yes',
@@ -108,6 +96,9 @@ export default {
     submitted() {
       this.isSubmitted = true;
     },
+  },
+  components: {
+    'app-fullname': FullName,
   },
 };
 </script>
