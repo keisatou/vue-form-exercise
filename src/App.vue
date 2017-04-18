@@ -18,12 +18,18 @@
           <!-- Edit the Example from above and create a custom "Full Name" Control -->
           <!-- which still holds the First Name and Last Name Input Field -->
           <div class="form-group">
-            <label for="fullname">Full Name</label>
+            <label for="firstname">First Name</label>
             <input
-                   id="fullname"
+                   id="firstname"
                    class="form-control"
                    type="text"
-                   v-model="fullname">
+                   v-model="firstname">
+            <label for="lastname">Last Name</label>
+            <input
+                   id="lastname"
+                   class="form-control"
+                   type="text"
+                   v-model="lastname">
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -75,7 +81,7 @@
             <h4>Your Data</h4>
           </div>
           <div class="panel-body">
-            <p>Full Name: {{ fullname }}</p>
+            <p>Full Name: {{ firstname + ' ' + lastname }}</p>
             <p>Mail: {{ email }}</p>
             <p>Password: {{ password }}</p>
             <p>Store in Database?: {{ storedata }}</p>
@@ -90,7 +96,8 @@
 export default {
   data() {
     return {
-      fullname: '',
+      firstname: '',
+      lastname: '',
       email: '',
       password: '',
       storedata: 'yes',
